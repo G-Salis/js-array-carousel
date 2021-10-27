@@ -42,6 +42,7 @@
 .text_postion_l{
   right: 20px;
   bottom: 65px;
+  text-align: right;
   color: white;
   font-size: 40px;
   text-transform: uppercase;
@@ -51,6 +52,7 @@
   right: 20px;
   bottom: 30px;
   color: white;
+  text-align: right;
 }
 
 .opac{
