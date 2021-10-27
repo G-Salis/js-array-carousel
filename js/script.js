@@ -60,10 +60,48 @@ for (let i = 0; i < image.length; i++) {
 
 }
 
+for (let i = 0; i < title.length; i++) {
+  const item3 = document.createElement('div');
+ 
+
+  item3.className = 'disactive2';
+
+  if(i === cont){
+    item3.classList.add('active', 'position-absolute', 'text_postion_l');
+  }
+
+  item3.innerHTML = `${title[i]}`;
+
+
+  slider.append(item3);
+  
+
+}
+
+for (let i = 0; i < text.length; i++) {
+  const item4 = document.createElement('div');
+ 
+
+  item4.className = 'disactive3';
+
+  if(i === cont){
+    item4.classList.add('active', 'position-absolute', 'text_postion_d');
+  }
+
+  item4.innerHTML = `${text[i]}`;
+
+
+  slider.append(item4);
+  
+
+}
+
 
 // HTMLCollection -> array di elementi HTML
 const items = document.getElementsByClassName('disactive');
 const items2 = document.getElementsByClassName('opac');
+const items3 = document.getElementsByClassName('disactive2');
+const items4 = document.getElementsByClassName('disactive3');
 
 
 const prev = document.querySelector('.up_arrow');
@@ -73,6 +111,8 @@ prev.addEventListener('click',function(){
  
   items[cont].classList.remove('active');
   items2[cont].classList.remove('nitid', 'border', 'border-5');
+  items3[cont].classList.remove('active', 'position-absolute', 'text_postion_l');
+  items4[cont].classList.remove('active', 'position-absolute', 'text_postion_d');
  
 
   cont--;
@@ -81,6 +121,8 @@ prev.addEventListener('click',function(){
 
   items[cont].classList.add('active');
   items2[cont].classList.add('nitid', 'border', 'border-5');
+  items3[cont].classList.add('active', 'position-absolute', 'text_postion_l');
+  items4[cont].classList.add('active', 'position-absolute', 'text_postion_d');
  
 });
 
@@ -88,6 +130,8 @@ next.addEventListener('click',function(){
   
   items[cont].classList.remove('active');
   items2[cont].classList.remove('nitid', 'border', 'border-5');
+  items3[cont].classList.remove('active', 'position-absolute', 'text_postion_l');
+  items4[cont].classList.remove('active', 'position-absolute', 'text_postion_d');
   
 
   cont++;
@@ -97,6 +141,8 @@ next.addEventListener('click',function(){
   
   items[cont].classList.add('active');
   items2[cont].classList.add('nitid', 'border', 'border-5');
+  items3[cont].classList.add('active', 'position-absolute', 'text_postion_l');
+  items4[cont].classList.add('active', 'position-absolute', 'text_postion_d');
 });
   
 
