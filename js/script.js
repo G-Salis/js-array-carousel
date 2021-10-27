@@ -8,7 +8,7 @@ Al click dell’utente sulle frecce verso l’alto o verso il basso, l’immagin
  - testo.
 Allo stesso tempo nelle miniature l’immagine attiva dovrà apparire in evidenza rispetto alle altre. */
 
-const items = [
+const image = [
   'img/01.jpg',
   'img/02.jpg',
   'img/03.jpg',
@@ -35,3 +35,70 @@ const text = [
   
   'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ]
+
+let cont = 0;
+
+const slider = document.querySelector('.slider');
+const slider_2 = document.querySelector('.slider_2');
+
+for (let i = 0; i < image.length; i++) {
+  const item = document.createElement('div');
+  const item2 = document.createElement('div');
+
+  item.className = 'disactive';
+
+  if(i === cont){
+    item.classList.add('active');
+  }
+
+  item.innerHTML = `<img class="cont_img_primary" src="${image[i]}" alt="">`;
+
+  item2.innerHTML = `<img class="cont_img opac" src="${image[i]}" alt="">`;
+
+  slider.append(item);
+  slider_2.append(item2);
+
+}
+
+
+// HTMLCollection -> array di elementi HTML
+const items = document.getElementsByClassName('disactive');
+const items2 = document.getElementsByClassName('opac');
+
+
+const prev = document.querySelector('.up_arrow');
+const next = document.querySelector('.down_arrow');
+
+prev.addEventListener('click',function(){
+ 
+  items[cont].classList.remove('active');
+  items2[cont].classList.remove('nitid', 'border', 'border-5');
+ 
+
+  cont--;
+  // se il contatore è < 0 prende l'ultmo elemento dell'array (array.length - 1)
+  if(cont < 0) cont = items.length - 1;
+
+  items[cont].classList.add('active');
+  items2[cont].classList.add('nitid', 'border', 'border-5');
+ 
+});
+
+next.addEventListener('click',function(){
+  
+  items[cont].classList.remove('active');
+  items2[cont].classList.remove('nitid', 'border', 'border-5');
+  
+
+  cont++;
+  
+  if(cont > items.length - 1) cont = 0;
+
+  
+  items[cont].classList.add('active');
+  items2[cont].classList.add('nitid', 'border', 'border-5');
+});
+  
+
+
+
